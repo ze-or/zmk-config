@@ -18,7 +18,7 @@
 //Taipo Config
 // CONFIG
 #define COMBO_TIMEOUT 70
-#define COMBO_LAYERS 8
+#define COMBO_LAYERS 9
 #define STICKY_TIMEOUT 500
 
 // LEFT SIDE
@@ -142,9 +142,9 @@
         };
         combo_togtaipo {
             timeout-ms = <50>;
-            key-positions = <36 37>;
+            key-positions = <38 39>;
             bindings = <&tog 8>;
-			layers = <8>;
+			layers = <9>;
         };
     };
 
