@@ -83,6 +83,20 @@
     };
 };
 
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        config {
+            if-layers = <5 7>;
+            then-layer = <8>;
+        };
+        macnum {
+            if-layers = <4 5>;
+            then-layer = <6>;
+        };
+    };
+};
+
 #define rep key_repeat // Repeat Key Alias
 #define ltbspc lt 7 BSPC //Backspace when tapped, sym layer when held
 
@@ -133,20 +147,6 @@
 			layers = <8>;
         };
     };
-
-/ {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        config {
-            if-layers = <5 7>;
-            then-layer = <8>;
-        };
-        macnum {
-            if-layers = <4 5>;
-            then-layer = <6>;
-        };
-    };
-};
 
     keymap {
         compatible = "zmk,keymap";
