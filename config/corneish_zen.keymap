@@ -84,7 +84,7 @@
 };
 
 #define rep key_repeat // Repeat Key Alias
-#define ltbspc lt 6 BSPC //Backspace when tapped, sym layer when held
+#define ltbspc lt 7 BSPC //Backspace when tapped, sym layer when held
 
 / {
 
@@ -95,22 +95,23 @@
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp ESC>
+            bindings = <&kp ESC>;
         };
         combo_bspc {
             timeout-ms = <50>;
             key-positions = <11 23>;
             bindings = <&kp BSPC>;
         };
-        combo_caps {
-            timeout-ms = <50>;
-            key-positions = <40 41>;
-            bindings = <&kp CAPS>;
-        };
         combo_lctrl {
             timeout-ms = <50>;
             key-positions = <36 37>;
             bindings = <&lm LCTRL>;
+			layers = <4>;
+        };
+        combo_rctrl {
+            timeout-ms = <50>;
+            key-positions = <40 41>;
+            bindings = <&lm RCTRL>;
 			layers = <4>;
         };
         combo_lgui {
@@ -119,13 +120,33 @@
             bindings = <&lm LGUI>;
 			layers = <0 1 2>;
         };
-            combo_togtaipo {
+        combo_rgui {
+            timeout-ms = <50>;
+            key-positions = <40 41>;
+            bindings = <&lm RGUI>;
+            layers = <0 1 2>;
+        };
+        combo_togtaipo {
             timeout-ms = <50>;
             key-positions = <36 37>;
             bindings = <&tog 8>;
 			layers = <8>;
         };
     };
+
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        config {
+            if-layers = <5 7>;
+            then-layer = <8>;
+        };
+        macnum {
+            if-layers = <4 5>;
+            then-layer = <6>;
+        };
+    };
+};
 
     keymap {
         compatible = "zmk,keymap";
@@ -214,11 +235,25 @@
 &kp TILDE &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS   &kp MULTIPLY &kp LPAR  &kp RPAR &kp PIPE
 &kp GRAVE &kp N1    &kp N2   &kp N3   &kp N4   &kp N5      &kp N6    &kp N7     &kp N8       &kp N9    &kp N0   &kp BSLH
 &trans    &kp LBRC  &kp RBRC &kp LBKT &kp RBKT &kp COMMA   &kp DOT   &kp EQUAL  &kp PLUS     &kp MINUS &kp FSLH &trans
-                          	        &trans &trans &trans   &trans &RALT &trans
+                          	        &trans &trans &trans   &trans &kp RALT &trans
             >;
         };
 
-        navigation_layer {  //6
+        macnum_layer {      //6
+// --------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |     |     |     |     |     |     | 
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     | GUI |     |
+            bindings = <
+&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+                     &trans &trans &trans   &trans &kp RGUI &trans
+            >;
+        };
+
+        navigation_layer {  //7
             display-name = "Nav";
 // -----------------------------------------------------------------------------------------
 // | CAP |  F1 |  F2 |  F3 |  F4 |     |   |     | HME |  UP | END | PGU | DEL |
@@ -233,7 +268,7 @@
             >;
         };
 
-        config_layer {      //7
+        config_layer {      //8
             display-name = "Config";
 // -----------------------------------------------------------------------------------------
 // | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |     | LCLK | MSUP | RCLK | SCUP |        |
@@ -242,13 +277,13 @@
 //                     |     |     |     |   |     |      |      |
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none    &mkp MB1       &mmv MOVE_UP   &mkp MB2        &msc SCRL_UP   &none
-&trans     &to 0        &to 1        &to 2        &tog 8       &none          &mkp MB3 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN &none
+&trans     &to 0        &to 1        &to 2        &tog 9       &none          &mkp MB3 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN &none
 &trans     &tog 4       &none        &none        &none        &none          &none    &msc SCRL_LEFT &none          &msc SCRL_RIGHT &none          &studio_unlock
                                                        &trans &trans &trans   &trans &trans &trans
             >;
         };
 
-        taipo_layer {      //8
+        taipo_layer {      //9
             display-name = "Taipo";
             bindings = <
 &none &none &none &none &none &none     &none &none &none &none &none &none
