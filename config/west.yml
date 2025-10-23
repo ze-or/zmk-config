@@ -2,13 +2,13 @@ manifest:
   defaults:
     revision: v0.3
   remotes:
-    - name: caksoylar
-      url-base: https://github.com/caksoylar
+    - name: ze-or
+      url-base: https://github.com/ze-or
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
-      remote: caksoylar
+      remote: ze-or
       revision: caksoylar/zen-v1+v2
       import: app/west.yml
   self:
