@@ -142,7 +142,7 @@
         };
         combo_togtaipo {
             timeout-ms = <50>;
-            key-positions = <38 39>;
+            key-positions = <36 41>;
             bindings = <&tog 11>;
 			layers = <11>;
         };
