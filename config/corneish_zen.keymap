@@ -18,7 +18,7 @@
 //Taipo Config
 // CONFIG
 #define COMBO_TIMEOUT 70
-#define COMBO_LAYERS 11
+#define COMBO_LAYERS 12
 #define STICKY_TIMEOUT 500
 
 // LEFT SIDE
@@ -87,18 +87,19 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         config {
-            if-layers = <7 9>;
-            then-layer = <10>;
+            if-layers = <7 8>;
+            then-layer = <11>;
         };
         macconfig {
-            if-layers = <8 9>;
-            then-layer = <10>;
+            if-layers = <9 10>;
+            then-layer = <11>;
         };
     };
 };
 
 #define rep key_repeat // Repeat Key Alias
-#define ltbspc lt 9 BSPC //Backspace when tapped, sym layer when held
+#define ltbspc lt 8 BSPC //Backspace when tapped, nav layer when held
+#define mltbspc lt 10 BSPC //Backspace when tapped, mac nav layer when held
 
 / {
 
@@ -116,35 +117,35 @@
             key-positions = <11 23>;
             bindings = <&kp BSPC>;
         };
-        combo_lctrl {
-            timeout-ms = <50>;
-            key-positions = <36 37>;
-            bindings = <&lm LCTRL>;
-			layers = <3 4 5>;
-        };
-        combo_rctrl {
-            timeout-ms = <50>;
-            key-positions = <40 41>;
-            bindings = <&lm RCTRL>;
-			layers = <3 4 5>;
-        };
         combo_lgui {
             timeout-ms = <50>;
             key-positions = <36 37>;
             bindings = <&lm LGUI>;
-			layers = <0 1 2>;
+			layers = <0 1 2 7 8>;
         };
         combo_rgui {
             timeout-ms = <50>;
             key-positions = <40 41>;
             bindings = <&lm RGUI>;
-            layers = <0 1 2>;
+            layers = <0 1 2 7 8>;
+        };
+        combo_lctrl {
+            timeout-ms = <50>;
+            key-positions = <36 37>;
+            bindings = <&lm LCTRL>;
+			layers = <3 4 5 9 10>;
+        };
+        combo_rctrl {
+            timeout-ms = <50>;
+            key-positions = <40 41>;
+            bindings = <&lm RCTRL>;
+			layers = <3 4 5 9 10>;
         };
         combo_togtaipo {
             timeout-ms = <50>;
             key-positions = <36 41>;
-            bindings = <&tog 11>;
-			layers = <11>;
+            bindings = <&tog 12>;
+			layers = <12>;
         };
     };
 
@@ -207,7 +208,7 @@
 &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp MINUS
 &lm LALT  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RET
-             &lm LGUI &ltbspc &kp SPACE   &rep &kp RSHFT &mo 8
+            &lm LGUI &mltbspc &kp SPACE   &rep &kp RSHFT &mo 9
             >;
         };
 
@@ -222,7 +223,7 @@
 &kp TAB   &kp F &kp L   &kp H &kp V &kp Z   &kp Q &kp W  &kp U     &kp O   &kp Y    &kp SEMI
 &lm LALT  &kp S &kp R   &kp N &kp T &kp K   &kp C &kp D  &kp E     &kp A   &kp I    &kp MINUS
 &kp LSHFT &kp X &kp SQT &kp B &kp M &kp J   &kp P &kp G  &kp COMMA &kp DOT &kp FSLH &kp RET
-               &lm LGUI &ltbspc &kp SPACE   &rep &kp RSHFT &mo 8
+              &lm LGUI &mltbspc &kp SPACE   &rep &kp RSHFT &mo 9
             >;
         };
 
@@ -237,7 +238,7 @@
 &kp TAB   &kp J &kp G &kp H &kp P &kp F   &kp Q &kp V     &kp O   &kp U   &kp SEMI &kp FSLH
 &lm LALT  &kp R &kp S &kp N &kp T &kp K   &kp Y &kp I     &kp A   &kp E   &kp L    &kp MINUS
 &kp LSHFT &kp Z &kp W &kp M &kp D &kp B   &kp C &kp COMMA &kp SQT &kp DOT &kp X    &kp RET
-             &lm LGUI &ltbspc &kp SPACE   &rep &kp RSHFT &mo 8
+            &lm LGUI &mltbspc &kp SPACE   &rep &kp RSHFT &mo 9
             >;
         };
 
@@ -271,22 +272,7 @@
             >;
         };
 
-        macnum_layer {      //8
-            display-name = "Mac Num/Sym";
-// -----------------------------------------------------------------------------
-// |  ~  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  |  |
-// |  `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  \  |
-// |     |  {  |  }  |  [  |  ]  |  ,  |   |  .  |  =  |  +  |  -  |  /  |     |
-//                   |     |     |     |   |     | GUI |     |
-            bindings = <
-&kp TILDE &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS   &kp STAR &kp LPAR  &kp RPAR &kp PIPE
-&kp GRAVE &kp N1    &kp N2   &kp N3   &kp N4   &kp N5      &kp N6    &kp N7     &kp N8   &kp N9    &kp N0   &kp BSLH
-&trans    &kp LBRC  &kp RBRC &kp LBKT &kp RBKT &kp COMMA   &kp DOT   &kp EQUAL  &kp PLUS &kp MINUS &kp FSLH &trans
-                          	        &trans &trans &trans   &trans &kp RGUI &trans
-            >;
-        };
-
-        navigation_layer {  //9
+        navigation_layer {  //8
             display-name = "Nav";
 // -----------------------------------------------------------------------------------------
 // | CAP |  F1 |  F2 |  F3 |  F4 |     |   |     | HME |  UP | END | PGU | DEL |
@@ -301,7 +287,37 @@
             >;
         };
 
-        config_layer {      //10
+        macnum_layer {      //9
+            display-name = "Mac Num/Sym";
+// -----------------------------------------------------------------------------
+// |  ~  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  |  |
+// |  `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  \  |
+// |     |  {  |  }  |  [  |  ]  |  ,  |   |  .  |  =  |  +  |  -  |  /  |     |
+//                   |     |     |     |   |     | GUI |     |
+            bindings = <
+&kp TILDE &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS   &kp STAR &kp LPAR  &kp RPAR &kp PIPE
+&kp GRAVE &kp N1    &kp N2   &kp N3   &kp N4   &kp N5      &kp N6    &kp N7     &kp N8   &kp N9    &kp N0   &kp BSLH
+&trans    &kp LBRC  &kp RBRC &kp LBKT &kp RBKT &kp COMMA   &kp DOT   &kp EQUAL  &kp PLUS &kp MINUS &kp FSLH &trans
+                          	        &trans &trans &trans   &trans &kp RGUI &trans
+            >;
+        };
+
+        macnav_layer {      //10
+            display-name = "Mac Nav";
+// -----------------------------------------------------------------------------------------
+// | CAP |  F1 |  F2 |  F3 |  F4 |     |   |     | HME |  UP | END | PGU | DEL |
+// |     |  F5 |  F6 |  F7 |  F8 |     |   |     | LFT | DWN | RGT | PGD |     |
+// |     |  F9 | F10 | F11 | F12 |     |   |     | PRN | SCL | PSE | INS |     |
+//                   |     |     |     |   |     |     |     |
+            bindings = <
+&kp CAPS &kp F1 &kp F2  &kp F3  &kp F4  &none   &none &kp HOME  &kp UP   &kp END         &kp PG_UP &kp DEL
+&trans   &kp F5 &kp F6  &kp F7  &kp F8  &none   &none &kp LEFT  &kp DOWN &kp RIGHT       &kp PG_DN &trans
+&trans   &kp F9 &kp F10 &kp F11 &kp F12 &none   &none &kp PSCRN &kp SLCK &kp PAUSE_BREAK &kp INS   &trans
+                       &trans &trans &trans   &trans &trans &trans
+            >;
+        };
+
+        config_layer {      //11
             display-name = "Config";
 // -----------------------------------------------------------------------------------------
 // | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |     | LCLK | MSUP | RCLK | SCUP |        |
@@ -316,7 +332,7 @@
             >;
         };
 
-        taipo_layer {      //11
+        taipo_layer {      //12
             display-name = "Taipo";
             bindings = <
 &none &none &none &none &none &none     &none &none &none &none &none &none
