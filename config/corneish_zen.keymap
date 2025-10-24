@@ -20,7 +20,6 @@
 #define COMBO_TIMEOUT 70
 #define COMBO_LAYERS 12
 #define STICKY_TIMEOUT 500
-
 #define MOUSE_LEFT 13
 #define MOUSE_RIGHT 14
 
