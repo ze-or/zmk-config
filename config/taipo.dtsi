@@ -52,41 +52,41 @@ combo_l_space { \
 	timeout-ms = <COMBO_TIMEOUT>; \
 	bindings = <&kp SPACE>; \
 	key-positions = <LOT>; \
-	layers = <COMBO_LAYERS>; \
+	layers = <COMBO_LAYERS MOUSE_RIGHT>; \
 };
 
 combo_r_space { \
 	timeout-ms = <COMBO_TIMEOUT>; \
 	bindings = <&kp SPACE>; \
 	key-positions = <ROT>; \
-	layers = <COMBO_LAYERS>; \
+	layers = <COMBO_LAYERS MOUSE_LFFT>; \
 };
 
 combo_l_bspc { \
 	timeout-ms = <COMBO_TIMEOUT>; \
 	bindings = <&kp BSPC>; \
 	key-positions = <LIT>; \
-	layers = <COMBO_LAYERS>; \
+	layers = <COMBO_LAYERS MOUSE_RIGHT>; \
 };
 
 combo_r_bspc { \
 	timeout-ms = <COMBO_TIMEOUT>; \
 	bindings = <&kp BSPC>; \
 	key-positions = <RIT>; \
-	layers = <COMBO_LAYERS>; \
+	layers = <COMBO_LAYERS MOUSE_LFFT>; \
 };
 
 combo_l_mouse { \
 	timeout-ms = <COMBO_TIMEOUT>; \
 	bindings = <&mo MOUSE_LEFT>; \
-	key-positions = <LOT LIT>; \
+	key-positions = <LIT LOT>; \
 	layers = <COMBO_LAYERS MOUSE_LFFT MOUSE_RIGHT>; \
 };
 
 combo_r_mouse { \
 	timeout-ms = <COMBO_TIMEOUT>; \
 	bindings = <&mo MOUSE_RIGHT>; \
-	key-positions = <ROT RIT>; \
+	key-positions = <RIT ROT>; \
 	layers = <COMBO_LAYERS MOUSE_LEFT MOUSE_RIGHT>; \
 };
 
