@@ -21,6 +21,9 @@
 #define COMBO_LAYERS 12
 #define STICKY_TIMEOUT 500
 
+#define MOUSE_LEFT 13
+#define MOUSE_RIGHT 14
+
 // LEFT SIDE
 #define TLI 4 // TOP
 #define TLM 3 // TOP
@@ -274,15 +277,15 @@
 
         navigation_layer {  //8
             display-name = "Nav";
-// -----------------------------------------------------------------------------------------
-// | CAP |  F1 |  F2 |  F3 |  F4 |     |   |     | HME |  UP | END | PGU | DEL |
-// |     |  F5 |  F6 |  F7 |  F8 |     |   |     | LFT | DWN | RGT | PGD |     |
-// |     |  F9 | F10 | F11 | F12 |     |   |     | PRN | SCL | PSE | INS |     |
+// -----------------------------------------------------------------------------
+// | CAP |  F1 |  F2 |  F3 |  F4 | MUT |   | VUP | HME |  UP | END | PGU | DEL |
+// |     |  F5 |  F6 |  F7 |  F8 | PP  |   | VDN | LFT | DWN | RGT | PGD |     |
+// |     |  F9 | F10 | F11 | F12 | PRV |   | NXT | PRN | SCL | PSE | INS |     |
 //                   |     |     |     |   |     |     |     |
             bindings = <
-&kp CAPS &kp F1 &kp F2  &kp F3  &kp F4  &none   &none &kp HOME  &kp UP   &kp END         &kp PG_UP &kp DEL
-&trans   &kp F5 &kp F6  &kp F7  &kp F8  &none   &none &kp LEFT  &kp DOWN &kp RIGHT       &kp PG_DN &trans
-&trans   &kp F9 &kp F10 &kp F11 &kp F12 &none   &none &kp PSCRN &kp SLCK &kp PAUSE_BREAK &kp INS   &trans
+&kp CAPS &kp F1 &kp F2  &kp F3  &kp F4  &kp C_MUTE   &kp C_VOL_UP &kp HOME  &kp UP   &kp END         &kp PG_UP &kp DEL
+&trans   &kp F5 &kp F6  &kp F7  &kp F8  &kp C_PP     &kp C_VOL_DN &kp LEFT  &kp DOWN &kp RIGHT       &kp PG_DN &trans
+&trans   &kp F9 &kp F10 &kp F11 &kp F12 &kp C_PREV   &kp C_NEXT   &kp PSCRN &kp SLCK &kp PAUSE_BREAK &kp INS   &trans
                        &trans &trans &trans   &trans &trans &trans
             >;
         };
@@ -304,25 +307,25 @@
 
         macnav_layer {      //10
             display-name = "Mac Nav";
-// -----------------------------------------------------------------------------------------
-// | CAP |  F1 |  F2 |  F3 |  F4 |     |   |     | HME |  UP | END | PGU | DEL |
-// |     |  F5 |  F6 |  F7 |  F8 |     |   |     | LFT | DWN | RGT | PGD |     |
-// |     |  F9 | F10 | F11 | F12 |     |   |     | PRN | SCL | PSE | INS |     |
+// -----------------------------------------------------------------------------
+// | CAP |  F1 |  F2 |  F3 |  F4 | MUT |   | VUP | HME |  UP | END | PGU | DEL |
+// |     |  F5 |  F6 |  F7 |  F8 | PP  |   | VDN | LFT | DWN | RGT | PGD |     |
+// |     |  F9 | F10 | F11 | F12 | PRV |   | NXT | PRN | SCL | PSE | INS |     |
 //                   |     |     |     |   |     |     |     |
             bindings = <
-&kp CAPS &kp F1 &kp F2  &kp F3  &kp F4  &none   &none &kp HOME  &kp UP   &kp END         &kp PG_UP &kp DEL
-&trans   &kp F5 &kp F6  &kp F7  &kp F8  &none   &none &kp LEFT  &kp DOWN &kp RIGHT       &kp PG_DN &trans
-&trans   &kp F9 &kp F10 &kp F11 &kp F12 &none   &none &kp PSCRN &kp SLCK &kp PAUSE_BREAK &kp INS   &trans
-                       &trans &trans &trans   &trans &trans &trans
+&kp CAPS &kp F1 &kp F2  &kp F3  &kp F4  &kp C_MUTE   &kp C_VOL_UP &kp HOME  &kp UP   &kp END         &kp PG_UP &kp DEL
+&trans   &kp F5 &kp F6  &kp F7  &kp F8  &kp C_PP     &kp C_VOL_DN &kp LEFT  &kp DOWN &kp RIGHT       &kp PG_DN &trans
+&trans   &kp F9 &kp F10 &kp F11 &kp F12 &kp C_PREV   &kp C_NEXT   &kp PSCRN &kp SLCK &kp PAUSE_BREAK &kp INS   &trans
+                              &trans &trans &trans   &trans &trans &trans
             >;
         };
 
         config_layer {      //11
             display-name = "Config";
-// -----------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |     | LCLK | MSUP | RCLK | SCUP |        |
-// |       | QWE | SEM | TYP | TAI |     |   |     | MSLF | MSDN | MSRT | SCDN |        |
-// |       | MAC | SMC | TYM |     |     |   |     |      |      |      |      | UNLOCK |
+// --------------------------------------------------------------------------------------
+// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |     | MB1  | MSUP | MB2  | SCUP |        |
+// |       | QWE | SEM | TYP | TAI |     |   | MB3 | MSLF | MSDN | MSRT | SCDN |        |
+// |       | MAC | SMC | TYM |     |     |   |     | SCLF |      | SCRT |      | UNLOCK |
 //                     |     |     |     |   |     |      |      |
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none    &mkp MB1       &mmv MOVE_UP   &mkp MB2        &msc SCRL_UP   &none
@@ -338,6 +341,24 @@
 &none &none &none &none &none &none     &none &none &none &none &none &none
 &none &none &none &none &none &none     &none &none &none &none &none &none
 &none &none &none &none &none &none     &none &none &none &none &none &none
+                  &none &none &none     &none &none &none
+            >;
+        };
+        taipomouseleft_layer {      //13
+            display-name = "TMLeft";
+            bindings = <
+&none &msc SCRL_UP   &mkp MB2       &mmv MOVE_UP   &mkp MB1        &none     &none &none &none &none &none &none
+&none &msc SCRL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &none &none &none &none &none &none
+&none &none          &none          &none          &none           &none     &none &none &none &none &none &none
+                                                       &none &none &none     &none &none &none
+            >;
+        };
+        taipomouseright_layer {      //14
+            display-name = "TMRight";
+            bindings = <
+&none &none &none &none &none &none     &none &mkp MB1       &mmv MOVE_UP   &mkp MB2        &msc SCRL_UP   &none
+&none &none &none &none &none &none     &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN &none
+&none &none &none &none &none &none     &none &none          &none          &none           &none          &none
                   &none &none &none     &none &none &none
             >;
         };
