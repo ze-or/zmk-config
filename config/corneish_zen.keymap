@@ -107,12 +107,6 @@
         compatible = "zmk,combos";
         #include "taipo.dtsi"
 
-        combo_test {
-            timeout-ms = <50>;
-            key-positions = <1>;
-            bindings = <&kp N0>;
-            layers = <0>;
-        };
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
