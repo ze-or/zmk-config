@@ -90,7 +90,7 @@ combo_r_mouse { \
 	layers = <COMBO_LAYERS MOUSE_LEFT MOUSE_RIGHT>; \
 };
 
-TCOMBO(R,      &kp R,      &kp LS(R), &kp GT,     &none,        TLP,         TRP)
+TCOMBO(R,      &kp R,      &kp LS(R), &kp GT,     &kp INS,      TLP,         TRP)
 TCOMBO(S,      &kp S,      &kp LS(S), &kp RBRC,   &kp C_NEXT,   TLR,         TRR)
 TCOMBO(N,      &kp N,      &kp LS(N), &kp RBKT,   &kp C_PREV,   TLM,         TRM)
 TCOMBO(I,      &kp I,      &kp LS(I), &kp RPAR,   &kp PSCRN,    TLI,         TRI)
@@ -122,7 +122,7 @@ TCOMBO(QMARK,  &kp QMARK,  &kp EXCL,  &kp CAPS,   &none,        TLI BLM,     TRI
 TCOMBO(COMMA,  &kp COMMA,  &kp DOT,   &kp TILDE,  &none,        TLM BLI,     TRM BRI)
 TCOMBO(SEMI,   &kp SEMI,   &kp COLON, &none,      &none,        TLP BLR,     TRP BRR)
 TCOMBO(SQT,    &kp SQT,    &kp DQT,   &kp GRAVE,  &none,        TLR BLP,     TRR BRP)
-TCOMBO(TAB,    &kp TAB,    &kp DEL,   &kp INS,    &bt BT_CLR,   TLR TLM TLI, TRR TRM TRI)
+TCOMBO(TAB,    &kp TAB,    &kp DEL,   &kp K_APP,  &bt BT_CLR,   TLR TLM TLI, TRR TRM TRI)
 TCOMBO(ENTER,  &kp ENTER,  &kp ESC,   &sk RALT,   &bt BT_SEL 4, BLR BLM BLI, BRR BRM BRI)
 TCOMBO(LGUI,   &sk LGUI,   &kp RIGHT, &kp PGUP,   &bt BT_SEL 3, TLP BLP,     TRP BRP)
 TCOMBO(LALT,   &sk LALT,   &kp UP,    &kp HOME,   &bt BT_SEL 2, TLR BLR,     TRR BRR)
