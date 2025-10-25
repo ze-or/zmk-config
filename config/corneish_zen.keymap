@@ -143,6 +143,12 @@
             bindings = <&lm RCTRL>;
 			layers = <3 4 5 9 10>;
         };
+        combo_globe {
+            timeout-ms = <50>;
+            key-positions = <23 35>;
+            bindings = <&lm GLOBE>;
+			layers = <3 4 5 9 10>;
+        };
         combo_togtaipo {
             timeout-ms = <50>;
             key-positions = <36 41>;
