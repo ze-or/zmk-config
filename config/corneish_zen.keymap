@@ -67,10 +67,10 @@
 
 / {
     macros {
+        #include "taipomacro.dtsi"
+
         lm: lm {
             compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
             #binding-cells = <1>;
             bindings
                 = <&macro_press &mo 6>
@@ -104,6 +104,10 @@
 #define mltbspc lt 10 BSPC //Backspace when tapped, mac nav layer when held
 
 / {
+    
+    behaviors {
+        #include "taipotd.dtsi"
+    };
 
     combos {
         compatible = "zmk,combos";
