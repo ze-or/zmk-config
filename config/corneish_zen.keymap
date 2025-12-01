@@ -160,11 +160,23 @@
             bindings = <&lm GLOBE>;
 			layers = <3 4 5 9 10>;
         };
-        combo_togtaipo {
+        combo_taipo_off {
             timeout-ms = <50>;
             key-positions = <36 41>;
             bindings = <&tog 12>;
 			layers = <12>;
+        };
+        combo_taipo_on_l {
+            timeout-ms = <50>;
+            key-positions = <00 12 24>;
+            bindings = <&tog 12>;
+			layers = <0 1 2 3 4 5 6 7 8 9 10 11>;
+        };
+        combo_taipo_on_r {
+            timeout-ms = <50>;
+            key-positions = <11 23 35>;
+            bindings = <&tog 12>;
+			layers = <0 1 2 3 4 5 6 7 8 9 10 11>;
         };
     };
 
