@@ -66,6 +66,23 @@
 };
 
 / {
+    behaviors {
+        kton: key_toggle_on_only {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            display-name = "Key Toggle On";
+            toggle-mode = "on";
+        };
+        ktoff: key_toggle_off_only {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            display-name = "Key Toggle Off";
+            toggle-mode = "off";
+        };
+    };
+};
+
+/ {
     macros {
         lm: lm {
             compatible = "zmk,behavior-macro-one-param";
@@ -80,7 +97,7 @@
                 , <&macro_release &mo 6>
                 ;
         };
-        skgl:skgl {
+        skgl: skgl {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings
@@ -91,6 +108,36 @@
                 , <&macro_param_1to1>
                 , <&macro_release &sk MACRO_PLACEHOLDER>
                 , <&macro_release &sk GLOBE>
+                ;
+        };
+        sko: sko {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_release &kp MACRO_PLACEHOLDER>
+                , <&macro_param_1to1>
+                , <&macro_press &sk MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_param_1to1>
+                , <&macro_release &sk MACRO_PLACEHOLDER>
+                ;
+        };
+        modoff: modoff {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_release &kp LGUI &kp LALT &kp LCTRL &kp LSHFT>
+                ;
+        };
+        modoffent: modoffent {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp ENTER>
+                , <&macro_release &kp LGUI &kp LALT &kp LCTRL &kp LSHFT>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp ENTER>
                 ;
         };
     };
